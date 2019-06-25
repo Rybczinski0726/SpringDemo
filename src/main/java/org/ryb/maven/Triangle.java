@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements ApplicationContextAware, BeanNameAware {
+public class Triangle implements InitializingBean, DisposableBean{
 
     private List<Point> points;
     
@@ -46,14 +48,32 @@ public class Triangle implements ApplicationContextAware, BeanNameAware {
         System.out.println("Point C: " + getPointC().getX() + "," + getPointC().getY());
     }
 
+    // @Override
+    // public void setApplicationContext(ApplicationContext context) throws BeansException {
+    //     this.context = context;
+    // }
+
+    // @Override
+    // public void setBeanName(String beanName) {
+    //     System.out.println("Bean name is " + beanName);
+    // }
+
     @Override
-    public void setApplicationContext(ApplicationContext context) throws BeansException {
-        this.context = context;
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("InitiailingBean method called for triangle");
     }
 
     @Override
-    public void setBeanName(String beanName) {
-        System.out.println("Bean name is " + beanName);
+    public void destroy() throws Exception {
+        System.out.println("DisposableBean method called for triangle");
+    }
+
+    public void myInit() {
+        System.out.println("MyInit method called");
+    }
+
+    public void myDestroy() {
+        System.out.println("MyDestroy method called");
     }
 
 }

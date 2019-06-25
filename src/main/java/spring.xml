@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
-<beans>
+<beans default-init-method="myInit" default-destroy-method="myDestroy">
 
     <bean id="parentTriangle" class="org.ryb.maven.Triangle" abstract="true">
-        <property name="points">
-            <list>
-                <ref bean="pointA">
-            </list>
-        </property>
+        <property name="pointA" ref="pointA" />
     </bean>
 
     <bean id="triangle1" class="org.ryb.maven.Triangle" parent="parentTriangle">
-        <property name="points">
-            <list merge="true">
-                <ref bean="pointB">
-            </list>
-        </property>
+        <property name="pointB" ref="pointB" />
+        <property name="pointC" ref="pointC" />
     </bean>
 
     <bean id="triangle2" class="org.ryb.maven.Triangle" parent="parentTriangle">
