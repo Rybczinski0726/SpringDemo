@@ -1,48 +1,57 @@
 package org.ryb.maven;
 
-/**
- * Triangle
- */
 public class Triangle {
 
-    private String type;
-    private int height;
+    private Point pointA;
+    private Point pointB;
+    private Point pointC;
 
-    public Triangle(String type) {
-        this.type = type;
+    /**
+     * @return the pointA
+     */
+    public Point getPointA() {
+        return pointA;
     }
 
-    public Triangle(int height) {
-        this.height = height;
+    /**
+     * @return the pointB
+     */
+    public Point getPointB() {
+        return pointB;
     }
 
-    public Triangle(String type, int height) {
-        this.type = type;
-        this.height = height;
+    /**
+     * @return the pointC
+     */
+    public Point getPointC() {
+        return pointC;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    /**
+     * @param pointA the pointA to set
+     */
+    public void setPointA(Point pointA) {
+        this.pointA = pointA;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * @param pointB the pointB to set
+     */
+    public void setPointB(Point pointB) {
+        this.pointB = pointB;
     }
 
-    public String getType() {
-        return type;
+    /**
+     * @param pointC the pointC to set
+     */
+    public void setPointC(Point pointC) {
+        this.pointC = pointC;
     }
-
-    public int getHeight() {
-        return height;
-    }
-
-    // public void setType(String type) {
-    //     this.type = type;
-    // }
 
     public void draw() {
-        System.out.println(getType() + " Triangle drawn, height: " + getHeight());
+        System.out.println("Point A: " + getPointA().getX() + "," + getPointA().getY());
+        System.out.println("Point B: " + getPointB().getX() + "," + getPointB().getY());
+        System.out.println("Point C: " + getPointC().getX() + "," + getPointC().getY());
     }
 
 }
