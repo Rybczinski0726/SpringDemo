@@ -1,5 +1,7 @@
 package org.ryb.maven;
 
+import java.util.List;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
@@ -7,6 +9,8 @@ import org.springframework.context.ApplicationContextAware;
 
 public class Triangle implements ApplicationContextAware, BeanNameAware {
 
+    private List<Point> points;
+    
     private Point pointA;
     private Point pointB;
     private Point pointC;

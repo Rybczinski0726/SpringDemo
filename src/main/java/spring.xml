@@ -2,8 +2,25 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 
 <beans>
-    <bean id="triangle" class="org.ryb.maven.Triangle" autowire="byName">
 
+    <bean id="parentTriangle" class="org.ryb.maven.Triangle" abstract="true">
+        <property name="points">
+            <list>
+                <ref bean="pointA">
+            </list>
+        </property>
+    </bean>
+
+    <bean id="triangle1" class="org.ryb.maven.Triangle" parent="parentTriangle">
+        <property name="points">
+            <list merge="true">
+                <ref bean="pointB">
+            </list>
+        </property>
+    </bean>
+
+    <bean id="triangle2" class="org.ryb.maven.Triangle" parent="parentTriangle">
+        <property name="pointB" ref="pointB" />
     </bean>
 
     <bean id="pointA" class="org.ryb.maven.Point">
