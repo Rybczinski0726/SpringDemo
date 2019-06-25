@@ -17,8 +17,8 @@
     </bean>
 
     <bean id="pointA" class="org.ryb.maven.Point">
-        <property name="x" value="0" />
-        <property name="y" value="0" />
+        <property name="x" value="${pointA.pointX}" />
+        <property name="y" value="${pointA.pointY}" />
     </bean>
 
     <bean id="pointB" class="org.ryb.maven.Point">
@@ -31,7 +31,12 @@
         <property name="y" value="0" />
     </bean>
 
-    <bean class="org.ryb.maven.DisplayNameBeanPostProcessor" />
+    <!-- <bean class="org.ryb.maven.DisplayNameBeanPostProcessor" /> -->
+
+    <!-- <bean class="org.ryb.maven.BeanFactoryPP" /> -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="pointsConfig.properties" />
+    </bean>
 
     <alias name="triangle" alias="triangle-alias" />
 </beans>
