@@ -1,57 +1,23 @@
 package org.ryb.maven;
 
+import java.util.List;
+
 public class Triangle {
 
-    private Point pointA;
-    private Point pointB;
-    private Point pointC;
+    private List<Point> points;
 
-    /**
-     * @return the pointA
-     */
-    public Point getPointA() {
-        return pointA;
+    public List<Point> getPoints() {
+        return points;
     }
 
-    /**
-     * @return the pointB
-     */
-    public Point getPointB() {
-        return pointB;
+    public void setPoints(List<Point> points) {
+        this.points = points;
     }
-
-    /**
-     * @return the pointC
-     */
-    public Point getPointC() {
-        return pointC;
-    }
-
-    /**
-     * @param pointA the pointA to set
-     */
-    public void setPointA(Point pointA) {
-        this.pointA = pointA;
-    }
-
-    /**
-     * @param pointB the pointB to set
-     */
-    public void setPointB(Point pointB) {
-        this.pointB = pointB;
-    }
-
-    /**
-     * @param pointC the pointC to set
-     */
-    public void setPointC(Point pointC) {
-        this.pointC = pointC;
-    }
-
+    
     public void draw() {
-        System.out.println("Point A: " + getPointA().getX() + "," + getPointA().getY());
-        System.out.println("Point B: " + getPointB().getX() + "," + getPointB().getY());
-        System.out.println("Point C: " + getPointC().getX() + "," + getPointC().getY());
+        for (Point point : points) {
+            System.out.println("Point : " + point.getX() + "," + point.getY());
+        }
     }
 
 }

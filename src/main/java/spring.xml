@@ -3,23 +3,27 @@
 
 <beans>
     <bean id="triangle" class="org.ryb.maven.Triangle">
-        <property name="pointA" ref="zeroPoint" />
-        <property name="pointB">
-            <bean class="org.ryb.maven.Point">
-                <property name="x" value="-20" />
-                <property name="y" value="0" />
-            </bean>
-        </property>
-        <property name="pointC">
-            <bean class="org.ryb.maven.Point">
-                <property name="x" value="20" />
-                <property name="y" value="0" />
-            </bean>
+        <property name="points">
+            <list>
+                <ref bean="zeroPoint" />
+                <ref bean="point2" />
+                <ref bean="point3" />
+            </list>
         </property>
     </bean>
 
     <bean id="zeroPoint" class="org.ryb.maven.Point">
         <property name="x" value="0" />
+        <property name="y" value="0" />
+    </bean>
+
+    <bean id="point2" class="org.ryb.maven.Point">
+        <property name="x" value="-20" />
+        <property name="y" value="0" />
+    </bean>
+
+    <bean id="point3" class="org.ryb.maven.Point">
+        <property name="x" value="20" />
         <property name="y" value="0" />
     </bean>
 
