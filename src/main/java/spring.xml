@@ -31,5 +31,7 @@
         <property name="y" value="0" />
     </bean>
 
+    <bean class="org.ryb.maven.DisplayNameBeanPostProcessor" />
+
     <alias name="triangle" alias="triangle-alias" />
 </beans>
